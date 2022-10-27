@@ -1,6 +1,6 @@
 ﻿namespace RealisticExample.Shared.Products;
 
-public static class ProductDtoIndex
+public static class ProductDto
 {
     public class Index
     {
