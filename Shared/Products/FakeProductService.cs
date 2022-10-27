@@ -25,6 +25,8 @@ public class FakeProductService : IProductService
 
     }
 
+
+
     public Task<ProductDto.Detail> GetDetailAsync(int productId)
     {
         throw new NotImplementedException();
