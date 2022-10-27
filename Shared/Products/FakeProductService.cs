@@ -6,13 +6,23 @@ public class FakeProductService : IProductService
     private readonly List<ProductDto.Index> _products = new();
     public FakeProductService()
     {
-        var productIds = 0;
-        var productFaker = new Faker<ProductDto.Index>("nl")
-        .UseSeed(1337) // Always return the same products
-        .RuleFor(x => x.Id, _ => ++productIds)
-        .RuleFor(x => x.Name, f => f.Commerce.ProductName())
-        .RuleFor(x => x.Price, f => f.Random.Decimal(0, 250));
-        _products = productFaker.Generate(25);
+
+        int productId = 1;
+
+        _products.Add(new ProductDto.Index
+        {
+            Id = productId++,
+            Price = 20,
+            Name = "Plastic zak"
+        });
+
+        _products.Add(new ProductDto.Index
+        {
+            Id = productId++,
+            Price = 3,
+            Name = "Orval (flesje)"
+        });
+
     }
 
     public Task<IEnumerable<ProductDto.Index>> GetIndexAsync()
