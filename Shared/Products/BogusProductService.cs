@@ -4,11 +4,11 @@ using Bogus;
 public class BogusProductService : IProductService
 {
     private readonly List<ProductDto.Detail> _products = new();
-    private readonly List<ProductDto.Index> _productsIndex = new();
+    //private readonly List<ProductDto.Index> _productsIndex = new();
     public BogusProductService()
     {
         _products = CreateProductDetail();
-        _productsIndex = CreateProductIndex();
+        //_productsIndex = CreateProductIndex();
     }
 
     private List<ProductDto.Detail> CreateProductDetail()
@@ -24,20 +24,20 @@ public class BogusProductService : IProductService
         return productFaker.Generate(25);
     }
 
-    private List<ProductDto.Index> CreateProductIndex()
-    {
-        List<ProductDto.Index> result = new();
-        foreach (var item in _products)
-        {
-            result.Add(new ProductDto.Index
-            {
-                Id = item.Id,
-                Name = item.Name,
-                Price = item.Price,
-            });
-        }
-        return result;
-    }
+    //private List<ProductDto.Index> CreateProductIndex()
+    //{
+    //    List<ProductDto.Index> result = new();
+    //    foreach (var item in _products)
+    //    {
+    //        result.Add(new ProductDto.Index
+    //        {
+    //            Id = item.Id,
+    //            Name = item.Name,
+    //            Price = item.Price,
+    //        });
+    //    }
+    //    return result;
+    //}
 
     public Task<ProductDto.Detail> GetDetailAsync(int productId)
     {
