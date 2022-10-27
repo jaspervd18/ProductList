@@ -21,7 +21,7 @@ public class BogusProductService : IProductService
 
     public Task<ProductDto.Detail> GetDetailAsync(int productId)
     {
-        throw new NotImplementedException();
+        return Task.FromResult(_products.Single(x => x.Id == productId));
     }
 
     public Task<IEnumerable<ProductDto.Index>> GetIndexAsync()
